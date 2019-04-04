@@ -11,3 +11,6 @@ def blog(request):
 def job_details(request,id):
     job_detail=get_object_or_404(Jobfield,id=id)
     return render(request,'job/blog-details.html',{'job':job_detail})
+
+def comp_signup(request):
+    return render(request,'job/company-signup.html')
