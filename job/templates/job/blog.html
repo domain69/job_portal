@@ -1,0 +1,691 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Parason Software - Blog</title>
+	<link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css'%}">
+  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css'%}">
+  <link rel="stylesheet" href="{% static 'vendors/linericon/style.css'%}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css'%}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css'%}">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <!--================Header Menu Area =================-->
+  <header class="header_area">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container box_1620">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="{% url 'job:index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav justify-content-end">
+              <li class="nav-item"><a class="nav-link" href="{% url 'job:blog'%}">FIND JOBS</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">COMPANIES</a></li> 
+              <li class="nav-item"><a class="nav-link" href="#">LOGIN</a>
+                <li class="nav-item"><a class="nav-link" href="#">SIGN UP</a>
+            </ul>
+
+            <ul class="navbar-right">
+              <li class="nav-item">
+                <button class="button button-header bg">POST A JOB</button>
+              </li>
+            </ul>
+          </div> 
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!--================Header Menu Area =================-->
+
+  <!--================ Hero sm Banner start =================-->      
+  <section class="hero-banner hero-banner--sm mb-30px">
+    <div class="container">
+      <div class="hero-banner--sm__content">
+        <h1>JOBS</h1>
+        <!--<nav aria-label="breadcrumb" class="banner-breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Blog</li>
+          </ol>
+        </nav>-->
+      </div>
+    </div>
+  </section>
+  <!--================ Hero sm Banner end =================-->
+
+
+  <!--================Blog Categorie Area =================-->
+  <!--<section class="blog_categorie_area">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="categories_post">
+                <img class="card-img rounded-0" src="img/blog/cat-post/cat-post-3.jpg" alt="post">
+                <div class="categories_details">
+                    <div class="categories_text">
+                        <a href="single-blog.html">
+                            <h5>Social Life</h5>
+                        </a>
+                        <div class="border_line"></div>
+                        <p>Enjoy your social life together</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="categories_post">
+            <img class="card-img rounded-0" src="img/blog/cat-post/cat-post-2.jpg" alt="post">
+            <div class="categories_details">
+              <div class="categories_text">
+                <a href="single-blog.html">
+                    <h5>Politics</h5>
+                </a>
+                <div class="border_line"></div>
+                <p>Be a part of politics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="categories_post">
+                <img class="card-img rounded-0" src="img/blog/cat-post/cat-post-1.jpg" alt="post">
+                <div class="categories_details">
+                    <div class="categories_text">
+                        <a href="single-blog.html">
+                            <h5>Food</h5>
+                        </a>
+                        <div class="border_line"></div>
+                        <p>Let the food be finished</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+  <!--================Blog Categorie Area =================-->
+
+  <!--================Blog Area =================-->
+  <br>
+  <section class="blog_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8">
+                  <div class="blog_left_sidebar">
+                      <article class="row blog_item">
+                          <div class="col-md-3">
+                              <div class="blog_info text-right">
+                                  <div class="post_tag">
+                                      <p> <i class="fas fa-crown"></i> 
+                                        FULL STACK DEVELOPER
+                                      </p>
+                                  </div>
+                                  <ul class="blog_meta list">
+                                      <li>
+                                          <p>3-5 yrs
+                                              <i class="fas fa-briefcase"></i>
+                                            </p>
+                                      </li>
+                                      <li>
+                                          <p>Mumbai
+                                            <i class="fas fa-map-marker-alt"></i>
+                                          </p>
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <p>INR 2.25L - 7.25L
+                                              <i class="fas fa-wallet"></i>
+                                          </p>
+                                      </li>
+                                      <li>
+                                          <p>Posted 2 Days ago
+                                              <i class="fas fa-history"></i>
+                                          </p>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="blog_post">
+                                  <img src="img/blog/main-blog/m-blog-1.jpg" alt="">
+                                  <div class="blog_details">
+                                      <a href="single-blog.html">
+                                          <h2>L&T Infotech</h2>
+                                      </a>
+                                      <p>KEYSKILLS:
+                                          <br>
+                                          Django, Javascript, HTML, Python, Angular JS, Node JS, MongoDB, NoSQL
+                                      </p>
+                                      <a class="button button-blog" href="{% url 'job:job_details'%}">SHOW DETAILS</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </article>
+                      <article class="row blog_item">
+                          <div class="col-md-3">
+                              <div class="blog_info text-right">
+                                  <div class="post_tag">
+                                    <p> <i class="fas fa-crown"></i> 
+                                        FULL STACK DEVELOPER
+                                    </p>
+                                  </div>
+                                  <ul class="blog_meta list">
+                                    <li>
+                                        <p>3-5 yrs
+                                            <i class="fas fa-briefcase"></i>
+                                          </p>
+                                    </li>
+                                    <li>
+                                        <p>Mumbai
+                                          <i class="fas fa-map-marker-alt"></i>
+                                        </p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <p>INR 2.25L - 7.25L
+                                            <i class="fas fa-wallet"></i>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>Posted 2 Days ago
+                                            <i class="fas fa-history"></i>
+                                        </p>
+                                    </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="blog_post">
+                                  <img src="img/blog/main-blog/m-blog-2.jpg" alt="">
+                                  <div class="blog_details">
+                                      <a href="single-blog.html">
+                                        <h2>L&T Infotech</h2>
+                                      </a>
+                                      <p>KEYSKILLS:
+                                        <br>
+                                        Django, Javascript, HTML, Python, Angular JS, Node JS, MongoDB, NoSQL
+                                    </p>
+                                      <a href="blog-details.html" class="button button-blog">SHOW DETAILS</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </article>
+                      <article class="row blog_item">
+                          <div class="col-md-3">
+                              <div class="blog_info text-right">
+                                  <div class="post_tag">
+                                    <p> <i class="fas fa-crown"></i> 
+                                        FULL STACK DEVELOPER
+                                    </p>
+                                  </div>
+                                  <ul class="blog_meta list">
+                                    <li>
+                                        <p>3-5 yrs
+                                            <i class="fas fa-briefcase"></i>
+                                          </p>
+                                    </li>
+                                    <li>
+                                        <p>Mumbai
+                                          <i class="fas fa-map-marker-alt"></i>
+                                        </p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <p>INR 2.25L - 7.25L
+                                            <i class="fas fa-wallet"></i>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>Posted 2 Days ago
+                                            <i class="fas fa-history"></i>
+                                        </p>
+                                    </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="blog_post">
+                                  <img src="img/blog/main-blog/m-blog-3.jpg" alt="">
+                                  <div class="blog_details">
+                                      <a href="single-blog.html">
+                                        <h2>L&T Infotech</h2>
+                                      </a>
+                                      <p>KEYSKILLS:
+                                        <br>
+                                        Django, Javascript, HTML, Python, Angular JS, Node JS, MongoDB, NoSQL
+                                    </p>
+                                      <a href="blog-details.html" class="button button-blog">SHOW DETAILS</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </article>
+                      <article class="row blog_item">
+                          <div class="col-md-3">
+                              <div class="blog_info text-right">
+                                  <div class="post_tag">
+                                    <p> <i class="fas fa-crown"></i> 
+                                        FULL STACK DEVELOPER
+                                    </p>
+                                  </div>
+                                  <ul class="blog_meta list">
+                                    <li>
+                                        <p>3-5 yrs
+                                            <i class="fas fa-briefcase"></i>
+                                          </p>
+                                    </li>
+                                    <li>
+                                        <p>Mumbai
+                                          <i class="fas fa-map-marker-alt"></i>
+                                        </p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <p>INR 2.25L - 7.25L
+                                            <i class="fas fa-wallet"></i>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>Posted 2 Days ago
+                                            <i class="fas fa-history"></i>
+                                        </p>
+                                    </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="blog_post">
+                                  <img src="img/blog/main-blog/m-blog-4.jpg" alt="">
+                                  <div class="blog_details">
+                                      <a href="single-blog.html">
+                                        <h2>L&T Infotech</h2>
+                                      </a>
+                                      <p>KEYSKILLS:
+                                        <br>
+                                        Django, Javascript, HTML, Python, Angular JS, Node JS, MongoDB, NoSQL
+                                    </p>
+                                      <a href="blog-details.html" class="button button-blog">SHOW DETAILS</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </article>
+                      <article class="row blog_item">
+                          <div class="col-md-3">
+                              <div class="blog_info text-right">
+                                  <div class="post_tag">
+                                    <p> <i class="fas fa-crown"></i> 
+                                        FULL STACK DEVELOPER
+                                    </p>
+                                  </div>
+                                  <ul class="blog_meta list">
+                                    <li>
+                                        <p>3-5 yrs
+                                            <i class="fas fa-briefcase"></i>
+                                          </p>
+                                    </li>
+                                    <li>
+                                        <p>Mumbai
+                                          <i class="fas fa-map-marker-alt"></i>
+                                        </p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <p>INR 2.25L - 7.25L
+                                            <i class="fas fa-wallet"></i>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>Posted 2 Days ago
+                                            <i class="fas fa-history"></i>
+                                        </p>
+                                    </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="blog_post">
+                                  <img src="img/blog/main-blog/m-blog-5.jpg" alt="">
+                                  <div class="blog_details">
+                                      <a href="single-blog.html">
+                                        <h2>L&T Infotech</h2>
+                                      </a>
+                                      <p>KEYSKILLS:
+                                        <br>
+                                        Django, Javascript, HTML, Python, Angular JS, Node JS, MongoDB, NoSQL
+                                    </p>
+                                      <a href="blog-details.html" class="button button-blog">SHOW DETAILS</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </article>
+                      <nav class="blog-pagination justify-content-center d-flex">
+                          <ul class="pagination">
+                              <li class="page-item">
+                                  <a href="#" class="page-link" aria-label="Previous">
+                                      <span aria-hidden="true">
+                                          <span class="lnr lnr-chevron-left"></span>
+                                      </span>
+                                  </a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link">01</a>
+                              </li>
+                              <li class="page-item active">
+                                  <a href="#" class="page-link">02</a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link">03</a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link">04</a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link">09</a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link" aria-label="Next">
+                                      <span aria-hidden="true">
+                                          <span class="lnr lnr-chevron-right"></span>
+                                      </span>
+                                  </a>
+                              </li>
+                          </ul>
+                      </nav>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="blog_right_sidebar">
+                      <aside class="single_sidebar_widget search_widget">
+                          <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Search Jobs">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button">
+                                      <i class="lnr lnr-magnifier"></i>
+                                  </button>
+                              </span>
+                          </div>
+                          <!-- /input-group -->
+                          <!--<div class="br"></div>
+                      </aside>
+                      <aside class="single_sidebar_widget author_widget">
+                          <img class="author_img rounded-circle" src="img/blog/author.png" alt="">
+                          <h4>Charlie Barber</h4>
+                          <p>Senior blog writer</p>
+                          <div class="social_icon">
+                              <a href="#">
+                                  <i class="fab fa-facebook-f"></i>
+                              </a>
+                              <a href="#">
+                                  <i class="fab fa-twitter"></i>
+                              </a>
+                              <a href="#">
+                                  <i class="fab fa-github"></i>
+                              </a>
+                              <a href="#">
+                                <i class="fab fa-behance"></i>
+                              </a>
+                          </div>
+                          <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should
+                              have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits
+                              detractors.
+                          </p>-->
+                          <div class="br"></div>
+                      </aside>
+                      <aside class="single_sidebar_widget popular_post_widget">
+                          <h3 class="widget_title">Recent Jobs Posted</h3>
+                          <div class="media post_item">
+                              <img src="img/blog/popular-post/post1.jpg" alt="post">
+                              <div class="media-body">
+                                  <a href="single-blog.html">
+                                      <h3>Space The Final Frontier</h3>
+                                  </a>
+                                  <p>02 Hours ago</p>
+                              </div>
+                          </div>
+                          <div class="media post_item">
+                              <img src="img/blog/popular-post/post2.jpg" alt="post">
+                              <div class="media-body">
+                                  <a href="single-blog.html">
+                                      <h3>The Amazing Hubble</h3>
+                                  </a>
+                                  <p>02 Hours ago</p>
+                              </div>
+                          </div>
+                          <div class="media post_item">
+                              <img src="img/blog/popular-post/post3.jpg" alt="post">
+                              <div class="media-body">
+                                  <a href="single-blog.html">
+                                      <h3>Astronomy Or Astrology</h3>
+                                  </a>
+                                  <p>03 Hours ago</p>
+                              </div>
+                          </div>
+                          <div class="media post_item">
+                              <img src="img/blog/popular-post/post4.jpg" alt="post">
+                              <div class="media-body">
+                                  <a href="single-blog.html">
+                                      <h3>Asteroids telescope</h3>
+                                  </a>
+                                  <p>01 Hours ago</p>
+                              </div>
+                          </div>
+                          <!--<div class="br"></div>
+                      </aside>
+                      <aside class="single_sidebar_widget ads_widget">
+                          <a href="#">
+                              <img class="img-fluid" src="img/blog/add.jpg" alt="">
+                          </a>
+                          <div class="br"></div>
+                      </aside>-->
+                      <br>
+                      <aside class="single_sidebar_widget post_category_widget">
+                          <h4 class="widget_title">Post Catgories</h4>
+                          <ul class="list cat-list">
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Technology</p>
+                                      <p>37</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Chef</p>
+                                      <p>24</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Fashion</p>
+                                      <p>59</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Art</p>
+                                      <p>29</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Musician</p>
+                                      <p>15</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Architecture</p>
+                                      <p>09</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Photographer</p>
+                                      <p>44</p>
+                                  </a>
+                              </li>
+                          </ul>
+                          <div class="br"></div>
+                      </aside>
+                      <aside class="single-sidebar-widget newsletter_widget">
+                          <h4 class="widget_title">Newsletter</h4>
+                          <p>
+                              Here, I focus on a range of items and features that we use in life without giving them a second thought.
+                          </p>
+                          <div class="form-group d-flex flex-row">
+                              <div class="input-group">
+                                  <div class="input-group-prepend">
+                                      <div class="input-group-text">
+                                          <i class="fa fa-envelope" aria-hidden="true"></i>
+                                      </div>
+                                  </div>
+                                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email address" onfocus="this.placeholder = ''"
+                                      onblur="this.placeholder = 'Enter email'">
+                              </div>
+                              <a href="#" class="bbtns">Subcribe</a>
+                          </div>
+                          <p class="text-bottom">You can unsubscribe at any time</p>
+                          <div class="br"></div>
+                      </aside>
+                      <!--<aside class="single-sidebar-widget tag_cloud_widget">
+                          <h4 class="widget_title">Tag Clouds</h4>
+                          <ul class="list">
+                              <li>
+                                  <a href="#">Technology</a>
+                              </li>
+                              <li>
+                                  <a href="#">Fashion</a>
+                              </li>
+                              <li>
+                                  <a href="#">Architecture</a>
+                              </li>
+                              <li>
+                                  <a href="#">Fashion</a>
+                              </li>
+                              <li>
+                                  <a href="#">Food</a>
+                              </li>
+                              <li>
+                                  <a href="#">Technology</a>
+                              </li>
+                              <li>
+                                  <a href="#">Lifestyle</a>
+                              </li>
+                              <li>
+                                  <a href="#">Art</a>
+                              </li>
+                              <li>
+                                  <a href="#">Adventure</a>
+                              </li>
+                              <li>
+                                  <a href="#">Food</a>
+                              </li>
+                              <li>
+                                  <a href="#">Lifestyle</a>
+                              </li>
+                              <li>
+                                  <a href="#">Adventure</a>
+                              </li>
+                          </ul>
+                      </aside>-->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!--================Blog Area =================-->
+
+
+
+
+  <!-- ================ start footer Area ================= -->
+  <footer class="footer-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Browse Jobs</a></li>
+                    <li><a href="#">Browse Categories</a></li>
+                    <li><a href="#">Submit Resume</a></li>
+                    <li><a href="#">Companies</a></li>
+                </ul>
+            </div>
+            <div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
+                <h4><br></h4>
+                <ul>
+        <li><a href="#">Post a Job</a></li>
+                    <li><a href="#">Find a Candidate</a></li>
+                    <li><a href="#">Pricing Table</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
+                <h4>Jobs in</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i><a href="#"> Mumbai</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i><a href="#"> Pune</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i><a href="#"> Delhi</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i><a href="#"> Bangalore</a></li>
+                </ul>
+            </div>
+            <div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="#">8254 S.Garfield Street</a></li>
+                    <li><a href="#">Marine Lines</a></li>
+                    <li><a href="#">+91 9999999999</a></li>
+                    <li><a href="#">name@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="col-xl-4 col-md-8 mb-4 mb-xl-0 single-footer-widget">
+                <h4>Newsletter</h4>
+                <p>You can trust us. we only send promo offers,</p>
+                <div class="form-wrap" id="mc_embed_signup">
+                    <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                     method="get" class="form-inline">
+                        <input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
+                         required="" type="email">
+                        <button class="click-btn btn btn-default">subscribe</button>
+                        <div style="position: absolute; left: -5000px;">
+                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                        </div>
+
+                        <div class="info"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom row align-items-center text-center text-lg-left">
+            <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+JobsFactory &copy;<script>document.write(new Date().getFullYear());</script> <a href="#" target="_blank"> Privacy Policy</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ================ End footer Area ================= -->
+
+  <script src="{% static 'vendors/jquery/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'vendors/bootstrap/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+  <script src="{% static 'js/mail-script.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
