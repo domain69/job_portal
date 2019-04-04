@@ -171,7 +171,7 @@
                                           <br>
                                           {{job.job_description}}
                                       </p>
-                                      <a class="button button-blog" href="{% url 'job:job_details'%}">SHOW DETAILS</a>
+                                      <a class="button button-blog" href="{% url 'job:job_details' job.id %}">SHOW DETAILS</a>
                                   </div>
                               </div>
                           </div>

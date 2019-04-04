@@ -8,5 +8,6 @@ def blog(request):
     job=Jobfield.objects.all()
     return render(request,'job/blog.html',{'jobs':job})
 
-def job_details(request):
-    return render(request,'job/blog-details.html')
+def job_details(request,id):
+    job_detail=get_object_or_404(Jobfield,id=id)
+    return render(request,'job/blog-details.html',{'job':job_detail})
