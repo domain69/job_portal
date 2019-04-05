@@ -14,7 +14,8 @@
 <body class="form-v10">
 	<div class="page-content">
 		<div class="form-v10-content">
-			<form class="form-detail" action="#" method="post" id="myform">
+			<form class="form-detail" action="{% url 'job:comp_signup' %}" method="post" id="myform">
+				{% csrf_token %}
 				<div class="form-left">
 					<h2>General Infomation</h2>
 					<div class="form-row">
@@ -36,10 +37,10 @@
 						<input type="text" name="street" class="street" id="street" placeholder="Address Line 1" required>
 					</div>
 					<div class="form-row">
-						<input type="text" name="street" class="street" id="street" placeholder="Address Line 2" required>
+						<input type="text" name="street" class="street" id="street1" placeholder="Address Line 2" required>
 					</div>
 					<div class="form-row">
-						<select name="State">
+						<select name="State" id='state'>
 								<option value="">Select State</option>
 								<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
 								<option value="Andhra Pradesh">Andhra Pradesh</option>
