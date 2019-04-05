@@ -1,0 +1,31 @@
+{% extends 'job/base.html'%}
+{% load static %}
+{% block content%}
+	<head>
+		<meta charset="utf-8">
+		<title>Question</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{% static 'css_for_connector/style.css' %}">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="inner">
+				<img src="{% static 'img/image-1.png' %}" alt="" class="image-1">
+				<form>
+					<h3>ARE YOU?</h3>
+					<button type="submit" formaction="">
+						<span>JOB SEEKER</span>
+					</button>
+					<button type="submit" formaction="{% url 'job:comp_signup'%}">
+						<span>COMPANY</span>
+					</button>
+				</form>
+				<img src="{% static 'img/image-2.png' %}" alt="" class="image-2">
+			</div>	
+		</div>		
+		<script src="{% static 'js_for_connector/jquery-3.3.1.min.js' %}"></script>
+		<script src="{% static 'js_for_connector/main.js' %}"></script>
+	</body>
+{% endblock %}
