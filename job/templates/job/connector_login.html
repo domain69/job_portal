@@ -1,0 +1,22 @@
+{% extends 'job/base.html'%}
+{% load static %}
+{% block content%}
+<link rel="stylesheet" href="{% static 'css_for_connector/style.css' %}">
+<body>
+	<div class="wrapper">
+		<div class="inner">
+			<img src="{% static 'img/image-1.png' %}" alt="" class="image-1">
+			<form>
+				<h3>ARE YOU?</h3>
+				<button class= "loginbtn" type="submit" formaction="">
+					<span>JOB SEEKER</span>
+				</button>
+				<button class= "loginbtn" type="submit" formaction="{% url 'job:comp_login'%}">
+					<span>COMPANY</span>
+				</button>
+			</form>
+			<img src="{% static 'img/image-2.png' %}" alt="" class="image-2">
+		</div>	
+	</div>
+</body>
+{% endblock %}

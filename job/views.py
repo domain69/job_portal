@@ -2,9 +2,14 @@ from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from .models import Jobfield,Company
 from .forms import CompanyForm
-# Create your views here.
+from django.contrib.auth import authenticate,login,logout
+from django.urls import reverse
+from django.http import HttpResponseRedirect, HttpResponse
+
+
 def index(request):
     return render(request,'job/index.html')
+
 
 def blog(request):
     job=Jobfield.objects.all()
@@ -44,3 +49,27 @@ def comp_signup(request):
         form = CompanyForm()
 
     return render(request,'job/company-signup.html',{'form':form})
+
+def login_connector(request):
+    return render(request,'job/connector_login.html')
+
+#def comp_login(request):
+    #return render(request,'job/login.html')
+
+def comp_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('first_name')
+        user = authenticate(username=username, password=password)
+        if user:
+            if user.is_active:
+                login(request,user)
+                return HttpResponseRedirect(reverse('job:index'))
+            else:
+                return HttpResponse("Your account was inactive.")
+        else:
+            print("Someone tried to login and failed.")
+            print("They used username: {} and password: {}".format(username,password))
+            return HttpResponse("Invalid login details given")
+    else:
+        return render(request, 'job/login.html', {})
