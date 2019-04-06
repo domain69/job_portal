@@ -15,7 +15,7 @@
 <body class="form-v10">
 	<div class="page-content">
 		<div class="form-v10-content">
-			<form class="form-detail" action="#" method="post" id="myform">
+			<form class="form-detail" action="{% url 'job:comp_login'%}" method="post" id="myform">
 				{% csrf_token %}
 				<div class="form-left">
 					<h2>Welcome Back</h2>
