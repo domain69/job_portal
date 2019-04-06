@@ -11,7 +11,11 @@ def blog(request):
     return render(request,'job/blog.html',{'jobs':job})
 
 def job_details(request,id):
-    job_detail=get_object_or_404(Jobfield,id=id)
+    try:
+        job_detail=Jobfield.objects.get(id=id)
+    except Jobfield.DoesNotExist:
+        job_detail=None
+        
     return render(request,'job/blog-details.html',{'job':job_detail})
 
 def signup_connector(request):

@@ -69,7 +69,7 @@ h3 {
   text-align: center;
   margin-bottom: 33px; }
 
-.wrapper .inner button {
+.loginbtn {
   border: none;
   width: 100%;
   height: 49px;
@@ -88,10 +88,10 @@ h3 {
   transition: all 0.5s;
   position: relative;
   overflow: hidden; }
-  .wrapper .inner button span {
+  button span {
     position: relative;
     z-index: 2; }
-  .wrapper .inner button:before, .wrapper .inner button:after {
+  .loginbtn:before, .loginbtn:after {
     content: '';
     position: absolute;
     top: 0;
@@ -108,10 +108,10 @@ h3 {
     transform: translate(-100%, 0);
     -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
     transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1); }
-  .wrapper .inner button:after {
+  .loginbtn:after {
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s; }
-  .wrapper .inner button:hover:before,.wrapper .inner button:hover:after {
+  .loginbtn:hover:before, .loginbtn:hover:after {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0); }
 
