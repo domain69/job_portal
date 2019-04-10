@@ -1,9 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+class User(AbstractUser):
+    is_company = models.BooleanField('Company Status',default=False)
+    is_jobseeker = models.BooleanField('Job_seeker Status',default=False)
 
 class Company(models.Model):
     comp_name = models.CharField(max_length=30)
-    comp_username = models.CharField(max_length=20)
-    comp_password = models.CharField(max_length=16)
+    user = models.OneToOneField(User, on_delete = models.CASCADE,default=0)
     comp_phoneno = models.CharField(max_length=13)
     comp_email = models.EmailField(max_length=100)
     comp_description = models.CharField(max_length=300)
@@ -27,3 +31,12 @@ class Jobfield(models.Model):
 
     def __str__(self):
         return self.job_category
+
+class Jobseeker (models.Model):
+    id = models.AutoField(primary_key=True)
+    first_name = models.CharField(max_length=80)
+    last_name = models.CharField(max_length=40)
+    email = models.CharField(max_length=40)
+    contact = models.IntegerField(15)
+    address = models.TextField(max_length=800)
+    max_Qualification = models.CharField(max_length=150)

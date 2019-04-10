@@ -1,6 +1,5 @@
-from django.shortcuts import render,get_object_or_404
-from django.http import HttpResponse
-from .models import Jobfield,Company
+from django.shortcuts import render,get_object_or_404,redirect
+from .models import Jobfield,Company,User
 from .forms import CompanyForm
 from django.contrib.auth import authenticate,login,logout
 from django.urls import reverse
@@ -42,9 +41,12 @@ def comp_signup(request):
             city=request.POST.get('city')
             phone=request.POST.get('phone')
             email=request.POST.get('your_email')
-            comp_obj=Company(comp_name =name,comp_username =user_id,comp_password =password,comp_phoneno =phone,comp_email =email,comp_description =desc,comp_addressline1 =add1,comp_addressline2 =add2,comp_zipcode =zip1,comp_state =state,comp_country =city)
+            User_obj = User(username =  user_id,is_company = True)
+            User_obj.set_password(password)
+            User_obj.save()
+            comp_obj=Company(comp_name = name,user = User_obj, comp_phoneno =phone,comp_email =email,comp_description =desc,comp_addressline1 =add1,comp_addressline2 =add2,comp_zipcode =zip1,comp_state = state,comp_country = city)
             comp_obj.save()
-            return HttpResponse('<h1>Success!</h1>')
+            return redirect('job:index')
     else:
         form = CompanyForm()
 
