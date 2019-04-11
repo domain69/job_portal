@@ -47,9 +47,12 @@
             </ul>
 
             <ul class="navbar-right">
+              {% if request.user.is_company %}
               <li class="nav-item">
                 <button class="button button-header bg">POST A JOB</button>
               </li>
+              {% else %}
+              {% endif %}
             </ul>
           </div> 
         </div>
