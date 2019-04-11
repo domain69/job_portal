@@ -36,9 +36,14 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-end">
               <li class="nav-item"><a class="nav-link" href="{% url 'job:blog'%}">FIND JOBS</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">COMPANIES</a></li> 
+              <li class="nav-item"><a class="nav-link" href="#">COMPANIES</a></li>
+              {% if request.user.is_authenticated %}
+              <li class="nav-item"><a class="nav-link" href="{% url 'job:logout_user'%}">LOGOUT</a>
+              {% else %}
               <li class="nav-item"><a class="nav-link" href="{% url 'job:login' %}">LOGIN</a>
-                <li class="nav-item"><a class="nav-link" href="{% url 'job:signup'%}">SIGN UP</a>
+              <li class="nav-item"><a class="nav-link" href="{% url 'job:signup'%}">SIGN UP</a>
+              {% endif %}
+               
             </ul>
 
             <ul class="navbar-right">

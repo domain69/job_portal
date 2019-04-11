@@ -3,7 +3,7 @@ from .models import Jobfield,Company,User
 from .forms import CompanyForm
 from django.contrib.auth import authenticate,login,logout
 from django.urls import reverse
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse
 
 
 def index(request):
@@ -66,7 +66,7 @@ def comp_login(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return HttpResponseRedirect(reverse('job:index'))
+                return redirect('job:index')
             else:
                 return HttpResponse("Your account was inactive.")
         else:
@@ -75,3 +75,7 @@ def comp_login(request):
             return HttpResponse("Invalid login details given")
     else:
         return render(request, 'job/login.html', {})
+
+def logout_user(request):
+    logout(request)
+    return redirect('job:index')

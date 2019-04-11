@@ -10,5 +10,6 @@ urlpatterns = [
     path('signup/company/',views.comp_signup, name='comp_signup'),
     path('login/',views.login_connector,name='login'),
     #path('login/company/',auth_views.LoginView.as_view(template_name='job/login.html'),name='comp_login')
-    path('login/company/',views.comp_login,name='comp_login')
+    path('login/company/',views.comp_login,name='comp_login'),
+    path('logout/',views.logout_user,name = 'logout_user')
 ]

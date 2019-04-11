@@ -34,6 +34,7 @@ class Jobfield(models.Model):
 
 class Jobseeker (models.Model):
     id = models.AutoField(primary_key=True)
+    user = models.OneToOneField(User,on_delete = models.CASCADE)
     first_name = models.CharField(max_length=80)
     last_name = models.CharField(max_length=40)
     email = models.CharField(max_length=40)
