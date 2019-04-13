@@ -48,7 +48,7 @@
               <li class="nav-item"><a class="nav-link" href="{% url 'job:blog'%}">FIND A JOB</a></li>
               {% endif %} 
               {% if request.user.is_authenticated %}
-              <li class="nav-item"><a class="nav-link" href='#'>Hi, {{request.user.username}}</a>
+              <li class="nav-item"><a class="nav-link" href='{% url "job:profile"%}'>Hi, {{request.user.username}}</a>
               {% endif %}
             </ul>
 

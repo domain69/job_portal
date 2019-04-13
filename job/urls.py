@@ -16,6 +16,7 @@ urlpatterns = [
     path('login/company/',views.comp_login,name='comp_login'),
     path('login/jobseeker/',views.seeker_login,name='seeker_login'),
     path('logout/',views.logout_user,name = 'logout_user'),
+    path('profile/',views.profile,name = 'profile'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

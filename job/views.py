@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 from .models import Jobfield,Company,User,Jobseeker
 from .forms import CompanyForm,Userform,Jobform,Seekerform
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.http import HttpResponse
 
@@ -9,6 +10,17 @@ from django.http import HttpResponse
 def index(request):
     return render(request,'job/index.html')
 
+@login_required(login_url='{% url "job:login" %}')
+def profile(request):
+    user1 = request.user
+    if user1.is_company:
+        comp_obj = get_object_or_404(Company, user__username = user1)
+        content ={'details': comp_obj}
+        return render(request,'job/profile_for_comp.html',content)
+    elif user1.is_jobseeker:
+        seeker_obj = get_object_or_404(Jobseeker, user__username = user1)
+        content ={'details': seeker_obj}
+        return render(request,'job/profile.html',content)
 
 def blog(request):
     if request.method == 'GET':
