@@ -3,19 +3,24 @@
 {% block content%}
 <head>
 	<meta charset="utf-8">
-	<title>Company Sign-up Form</title>
+	<title>Job Seeker Login</title>
+	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/montserrat-font.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/material-design-iconic-font/css/material-design-iconic-font.min.css'%}">
+	<!-- Main Style Css -->
     <link rel="stylesheet" href="{% static 'css/style_for_company.css' %}">
 </head>
 <body class="form-v10">
 	<div class="page-content">
 		<div class="form-v10-content">
-			<form class="form-detail" action="{% url 'job:comp_signup' %}" method="POST" id="myform" enctype="multipart/form-data">
+			<form class="form-detail" action="{% url 'job:jobseeker_signup' %}" method="post" id="myform" enctype="multipart/form-data">
 				{% csrf_token %}
 				<div class="form-left">
 					<h2>General Infomation</h2>
 					<div class="form-row">
-						<input type="text" name="company" class="company" id="company" placeholder="Company Name" required>
+						<input type="text" name="company" class="company" id="company" placeholder="Full Name" required>
 					</div>
 					<div class="form-row">
 						<input type="text" name="username" class="username" id="username" placeholder="Username" required>
@@ -24,22 +29,23 @@
 						<input type="password" name="first_name" class="input-text" id="first_name" placeholder="Password" required>
 					</div>
 					<div class="form-row">
-						<input type="text" name="additional" id="additional" class="additional" placeholder="Company Description" required>
+						<input type="text" name="additional" id="additional" class="additional" placeholder="Maximum Qualification" required>
 					</div>
 					<div class="form-row">
-							{{form1}}
+						{{form1}}
 					</div>
-					
+					<div class="form-row">
+						{{form}}
+					</div>
 				</div>
 				<div class="form-right">
 					<h2>Contact Details</h2>
 					<div class="form-row">
-						<input type="text" name="street" class="street" id="street" placeholder="Address Line 1" required>
+						<input type="text" name="street" class="street" id="street" placeholder="Address" required>
 					</div>
 					<div class="form-row">
-						<input type="text" name="Address" class="Address" id="Address" placeholder="Address Line 1" required>
+						<input type="text" name="state" class="country" id="state" placeholder="State" required>
 					</div>
-					
 					<div class="form-group">
 							<div class="form-row form-row-1">
 								<input type="text" name="zip" class="zip" id="zip" placeholder="Zip Code" required>
@@ -49,13 +55,10 @@
 							</div>
 						</div>
 					<div class="form-row">
-						<input type="text" name="state" class="state" id="state" placeholder="State" required>
-					</div>
-					<div class="form-row">
 						<input type="text" name="phone" class="phone" id="phone" placeholder="Phone Number" required>
 					</div>
 					<div class="form-row">
-						<input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Email Address">
+						<input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Your Email">
 					</div>
 					<div class="form-checkbox">
 						<label class="container"><p>I do accept the <a href="#" class="text">Terms and Conditions</a> of your site.</p>

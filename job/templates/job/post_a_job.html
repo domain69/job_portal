@@ -1,0 +1,48 @@
+{% extends 'job/base.html'%}
+{% load static %}
+{% block content%}
+<head>
+	<title>Post a Job</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/montserrat-font.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/material-design-iconic-font/css/material-design-iconic-font.min.css'%}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'css/style_for_company.css' %}">
+</head>
+<body class="form-v10">
+	<div class="page-content">
+		<div class="form-v10-content">
+			<form class="form-detail" action="{% url 'job:post_a_job'%}" method="post" id="myform">
+				{% csrf_token %}
+				<div class="form-left">
+					<h2>Post a Job</h2>
+
+					<div class="form-row">
+						<input type="text" name="category" class="category" id="category" placeholder="Job Category" required>
+					</div>
+					<div class="form-row">
+						<input type="text" name="description" id="description" class="description" placeholder="Job Description" required>
+					</div>
+				</div>
+				<div class="form-right">
+					<h2>Job Details</h2>
+					<div class="form-row">
+						<input type="text" name="experience" class="experience" id="experience" placeholder="Experience Required" required>
+					</div>
+					<div class="form-row">
+						<input type="text" name="location" class="location" id="location" placeholder="Job Location" required>
+					</div>
+					<div class="form-row">
+						<input type="text" name="salary" class="salary" id="salary" placeholder="Salary" required>
+					</div>
+					<div class="form-row-last">
+						<input type="submit" name="register" class="register" value="POST IT">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+{% endblock %}
