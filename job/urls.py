@@ -18,5 +18,8 @@ urlpatterns = [
     path('logout/',views.logout_user,name = 'logout_user'),
     path('profile/',views.profile,name = 'profile'),
     path('edit_profile/',views.edit_profile,name = 'edit_profile'),
+    path('companies/',views.company,name = 'company'),
+    path('company_detail/<int:id>/',views.company_details,name = 'company_details'),
+    path('apply/<int:id>',views.apply_for_job,name = 'apply_for_job')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

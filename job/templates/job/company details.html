@@ -5,70 +5,15 @@
   <section class="hero-banner hero-banner--sm mb-30px">
     <div class="container">
       <div class="hero-banner--sm__content">
-        <h1>JOBS</h1>
-        <!--<nav aria-label="breadcrumb" class="banner-breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Blog</li>
-          </ol>
-        </nav>-->
+        <h1>COMPANIES  JOBS</h1>
+        
       </div>
     </div>
   </section>
   <!--================ Hero sm Banner end =================-->
 
 
-  <!--================Blog Categorie Area =================-->
-  <!--<section class="blog_categorie_area">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-            <div class="categories_post">
-                <img class="card-img rounded-0" src="img/blog/cat-post/cat-post-3.jpg" alt="post">
-                <div class="categories_details">
-                    <div class="categories_text">
-                        <a href="single-blog.html">
-                            <h5>Social Life</h5>
-                        </a>
-                        <div class="border_line"></div>
-                        <p>Enjoy your social life together</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="categories_post">
-            <img class="card-img rounded-0" src="img/blog/cat-post/cat-post-2.jpg" alt="post">
-            <div class="categories_details">
-              <div class="categories_text">
-                <a href="single-blog.html">
-                    <h5>Politics</h5>
-                </a>
-                <div class="border_line"></div>
-                <p>Be a part of politics</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-            <div class="categories_post">
-                <img class="card-img rounded-0" src="img/blog/cat-post/cat-post-1.jpg" alt="post">
-                <div class="categories_details">
-                    <div class="categories_text">
-                        <a href="single-blog.html">
-                            <h5>Food</h5>
-                        </a>
-                        <div class="border_line"></div>
-                        <p>Let the food be finished</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </section>-->
-  <!--================Blog Categorie Area =================-->
-
+  
   <!--================Blog Area =================-->
   <br>
   <section class="blog_area">
@@ -76,8 +21,7 @@
           <div class="row">
               <div class="col-lg-8">
                   <div class="blog_left_sidebar">
-                    {% if jobs %}  
-                    {% for job in jobs %}
+                    {% for job in com %}
                     <article class="row blog_item">
                           <div class="col-md-3">
                               <div class="blog_info text-right">
@@ -115,9 +59,9 @@
                               <div class="blog_post">
                                   <img src="{{job.job_comp.user.profile_pic.url}}" alt="">
                                   <div class="blog_details">
-                                      <a href="single-blog.html">
+                                      
                                           <h2>{{job.job_comp}}</h2>
-                                      </a>
+                                    
                                       <p>KEYSKILLS:
                                           <br>
                                           {{job.job_description}}
@@ -128,9 +72,9 @@
                           </div>
                     </article>
                     {% endfor %}
-                    {% else %}
-                        <h3>You Don't have any Jobs</h3>
-                    {% endif %}
+                    
+                        <!--<h3>You Don't have any Jobs</h3>-->
+                    
                       <nav class="blog-pagination justify-content-center d-flex">
                           <ul class="pagination">
                               <li class="page-item">

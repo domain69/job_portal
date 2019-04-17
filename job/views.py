@@ -116,7 +116,7 @@ def comp_signup(request):
         form = CompanyForm(request.POST)
         form1 = Userform(request.POST,request.FILES)
         if form.is_valid():
-            image = request.FILES['profile_pic']
+            image = request.FILES.get('profile_pic','default/download.png')
             name = request.POST.get('company')
             user_id = request.POST.get('username')
             password=request.POST.get('first_name')
@@ -217,4 +217,24 @@ def seeker_login(request):
 
 def logout_user(request):
     logout(request)
+    return redirect('job:index')
+
+
+def company(request):
+    com = Company.objects.all()
+    return render(request, 'job/company.html', {'comn':com})
+
+
+
+
+def company_details(request,id):
+    comjobs = Jobfield.objects.filter(job_comp=id)
+    return render(request, 'job/company details.html', {'com':comjobs})
+
+def apply_for_job(request,id):
+    user_obj = get_object_or_404(Jobseeker,user = request.user)
+    job_field = get_object_or_404(Jobfield,id = id)
+    user_obj.job.add(job_field)
+    user_obj.save()
+    print(user_obj.job)
     return redirect('job:index')
