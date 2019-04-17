@@ -20,3 +20,5 @@ class Seekerform(forms.ModelForm):
     class Meta:
         model = Jobseeker
         fields = ['resume',]
+
+

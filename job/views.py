@@ -22,6 +22,48 @@ def profile(request):
         content ={'details': seeker_obj}
         return render(request,'job/profile.html',content)
 
+@login_required(login_url='{% url "job:login" %}')
+def edit_profile(request):
+    user1 = request.user
+    if request.method =='POST':
+        if user1.is_company:
+            comp_obj = get_object_or_404(Company, user__username = user1)
+            comp_obj.comp_name = request.POST.get('input-first-name')
+            comp_obj.comp_email = request.POST.get('input-email')
+            comp_obj.comp_phoneno = request.POST.get('input-last-name')
+            comp_obj.comp_addressline1 = request.POST.get('input-add')
+            comp_obj.comp_addressline2 = request.POST.get('input-adds')
+            comp_obj.comp_zipcode = request.POST.get('input-postal-code')
+            comp_obj.comp_state = request.POST.get('input-city')
+            comp_obj.comp_country = request.POST.get('input-country')
+            comp_obj.save()
+            content ={'details': comp_obj}
+            return render(request,'job/edit_profile_for_comp.html',content) 
+        elif user1.is_jobseeker:
+            seeker_obj = get_object_or_404(Jobseeker, user__username = user1)
+            seeker_obj.name = request.POST.get('input-first-name')
+            seeker_obj.email = request.POST.get('input-email')
+            seeker_obj.contact = request.POST.get('input-last-name')
+            seeker_obj.address = request.POST.get('input-add')
+            seeker_obj.state = request.POST.get('input-adds')
+            seeker_obj.city = request.POST.get('input-city')
+            seeker_obj.zipcode = request.POST.get('input-postal-code')
+            #seeker_obj.name = request.POST.get('password')
+            seeker_obj.save()
+            content ={'details': seeker_obj}
+            return render(request,'job/edit_profile.html',content)    
+
+    else:
+        if user1.is_company:
+            comp_obj = get_object_or_404(Company, user__username = user1)
+            content ={'details': comp_obj}
+            return render(request,'job/edit_profile_for_comp.html',content)
+        elif user1.is_jobseeker:
+            seeker_obj = get_object_or_404(Jobseeker, user__username = user1)
+            content ={'details': seeker_obj}
+            return render(request,'job/edit_profile.html',content)
+
+
 def blog(request):
     if request.method == 'GET':
         status = request.GET.get('search','')
