@@ -20,6 +20,9 @@ urlpatterns = [
     path('edit_profile/',views.edit_profile,name = 'edit_profile'),
     path('companies/',views.company,name = 'company'),
     path('company_detail/<int:id>/',views.company_details,name = 'company_details'),
-    path('apply/<int:id>',views.apply_for_job,name = 'apply_for_job')
+    path('apply/<int:id>',views.apply_for_job,name = 'apply_for_job'),
+    path('comp_dash/',views.comp_dash, name='comp_dash'),
+    path('comp_dash/candidates/<int:id>/',views.candidates, name='candidates'),
+    path('comp_dash/candidates_profile/<int:id>/',views.candidate_profile, name='candidate_profile'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

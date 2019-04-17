@@ -238,3 +238,17 @@ def apply_for_job(request,id):
     user_obj.save()
     print(user_obj.job)
     return redirect('job:index')
+
+def comp_dash(request):
+    comjobs = Jobfield.objects.filter(job_comp__user = request.user.id)
+    return render(request, 'job/comp_dash.html',{'com':comjobs})
+
+def candidates(request,id):
+    Jobseeker_obj = Jobseeker.objects.filter(job = id)
+    
+    return render(request, 'job/candidate_details.html', {'candidates':Jobseeker_obj})
+
+def candidate_profile(request,id):
+    seeker_obj = get_object_or_404(Jobseeker, id = id )
+    content ={'details': seeker_obj}
+    return render(request,'job/candidate_profile.html',content)

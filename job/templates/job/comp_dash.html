@@ -1,0 +1,80 @@
+{% extends 'job/base.html'%}
+{% load static %}
+{% block content%}
+<!--================ Hero sm Banner start =================-->      
+  <section class="hero-banner hero-banner--sm mb-30px">
+    <div class="container">
+      <div class="hero-banner--sm__content">
+        <h1>MY JOBS</h1>
+        
+      </div>
+    </div>
+  </section>
+  <!--================ Hero sm Banner end =================-->
+
+
+  <!--================Blog Area =================-->
+  <br>
+  <section class="blog_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog_left_sidebar">
+                  {% for job in com %}
+                  <article class="row blog_item">
+                        <div class="col-md-3">
+                            <div class="blog_info text-right">
+                                <div class="post_tag">
+                                    <p> <i class="fas fa-crown"></i> 
+                                      {{job.job_category}}
+                                    </p>
+                                </div>
+                                <ul class="blog_meta list">
+                                    <li>
+                                        <p>{{job.job_experience}}
+                                            <i class="fas fa-briefcase"></i>
+                                          </p>
+                                    </li>
+                                    <li>
+                                        <p>{{job.job_location}}
+                                          <i class="fas fa-map-marker-alt"></i>
+                                        </p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <p>INR {{job.job_salary}}
+                                            <i class="fas fa-wallet"></i>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>Posted on {{job.job_postedon}}
+                                            <i class="fas fa-history"></i>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="blog_post">
+                                <img src="{{job.job_comp.user.profile_pic.url}}" alt="">
+                                <div class="blog_details">
+                                    
+                                        <h2>{{job.job_comp}}</h2>
+                                  
+                                    <p>KEYSKILLS:
+                                        <br>
+                                        {{job.job_description}}
+                                    </p>
+                                    <a class="button button-blog" href="{% url 'job:candidates' job.id %}">SHOW ALL CANDIDATES</a>
+                                </div>
+                            </div>
+                        </div>
+                  </article>
+                  {% endfor %}
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  </section>
+                  
+{% endblock %}

@@ -43,6 +43,7 @@
               <li class="nav-item"><a class="nav-link" href="{% url 'job:signup'%}">SIGN UP</a>
               {% endif %}
               {% if request.user.is_company %}
+              <li class="nav-item"><a class="nav-link" href="{% url 'job:comp_dash' %}">DashBoard</a></li>
               <li class="nav-item"><a class="nav-link" href="{% url 'job:post_a_job' %}">POST A JOB</a></li>
               {% else %}
               <li class="nav-item"><a class="nav-link" href="{% url 'job:blog'%}">FIND A JOB</a></li>
