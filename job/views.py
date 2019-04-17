@@ -1,11 +1,13 @@
-from django.shortcuts import render,get_object_or_404,redirect
+
 from .models import Jobfield,Company,User,Jobseeker
 from .forms import CompanyForm,Userform,Jobform,Seekerform
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse
+from django.core.mail import send_mail
+from django.conf import settings
 from django.http import HttpResponse
-
+from django.shortcuts import render,get_object_or_404,redirect
+from django.urls import reverse
 
 def index(request):
     return render(request,'job/index.html')
@@ -252,3 +254,10 @@ def candidate_profile(request,id):
     seeker_obj = get_object_or_404(Jobseeker, id = id )
     content ={'details': seeker_obj}
     return render(request,'job/candidate_profile.html',content)
+
+def selected_send_mail(request,id):
+    subject = 'Congrats you are Hired'
+    message = 'Congo'
+    from_email = settings.EMAIL_HOST_USER
+    to_list = [settings.EMAIL_HOST_USER,]
+    send_mail(subject,message,from_email,to_list,fail_silently=True)
