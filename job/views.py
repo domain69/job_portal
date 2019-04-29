@@ -9,6 +9,8 @@ from django.http import HttpResponse
 from django.shortcuts import render,get_object_or_404,redirect
 from django.urls import reverse
 
+email_set = set()
+
 def index(request):
     return render(request,'job/index.html')
 
@@ -47,13 +49,15 @@ def edit_profile(request):
             seeker_obj.email = request.POST.get('input-email')
             seeker_obj.contact = request.POST.get('input-last-name')
             seeker_obj.address = request.POST.get('input-add')
-            seeker_obj.state = request.POST.get('input-adds')
+            seeker_obj.state = request.POST.get('input-country')
             seeker_obj.city = request.POST.get('input-city')
             seeker_obj.zipcode = request.POST.get('input-postal-code')
-            #seeker_obj.name = request.POST.get('password')
+            password = request.POST.get('password')
+            user_obj = get_object_or_404(User,id = request.user.id)
+            user_obj.set_password(password)
+            user_obj.save()
             seeker_obj.save()
-            content ={'details': seeker_obj}
-            return render(request,'job/edit_profile.html',content)    
+            return redirect('job:seeker_login')    
 
     else:
         if user1.is_company:
@@ -204,16 +208,19 @@ def seeker_login(request):
         username = request.POST.get('username')
         password = request.POST.get('first_name')
         user = authenticate(username=username, password=password)
-        if user.is_jobseeker:
-            if user.is_active:
-                login(request,user)
-                return redirect('job:index')
+        if user:
+            if user.is_jobseeker:
+                if user.is_active:
+                    login(request,user)
+                    return redirect('job:index')
+                else:
+                    return HttpResponse("Your account was inactive.")
             else:
-                return HttpResponse("Your account was inactive.")
+                print("Someone tried to login and failed.")
+                print("They used username: {} and password: {}".format(username,password))
+                return HttpResponse("Invalid login details given")
         else:
-            print("Someone tried to login and failed.")
-            print("They used username: {} and password: {}".format(username,password))
-            return HttpResponse("Invalid login details given")
+            return HttpResponse("No Such User")
     else:
         return render(request, 'job/seeker_login.html', {})
 
@@ -238,7 +245,6 @@ def apply_for_job(request,id):
     job_field = get_object_or_404(Jobfield,id = id)
     user_obj.job.add(job_field)
     user_obj.save()
-    print(user_obj.job)
     return redirect('job:index')
 
 def comp_dash(request):
@@ -247,17 +253,25 @@ def comp_dash(request):
 
 def candidates(request,id):
     Jobseeker_obj = Jobseeker.objects.filter(job = id)
-    
-    return render(request, 'job/candidate_details.html', {'candidates':Jobseeker_obj})
+    return render(request, 'job/candidate_details.html', {'candidates':Jobseeker_obj,'job_id':id})
 
-def candidate_profile(request,id):
+def candidate_profile(request,job_id,id):
     seeker_obj = get_object_or_404(Jobseeker, id = id )
-    content ={'details': seeker_obj}
+    content ={'details': seeker_obj,'job_id':job_id}
     return render(request,'job/candidate_profile.html',content)
 
-def selected_send_mail(request,id):
-    subject = 'Congrats you are Hired'
-    message = 'Congo'
+def selected_send_mail(request,job_id,id):
+    user_obj = get_object_or_404(Jobseeker,id = id)
+    job_obj = get_object_or_404(Jobfield,id = job_id)
+    subject = 'Invitation to Interview'
+    message = 'Dear  ' + user_obj.full_name + ',' + '\n \n' +'Thank you for applying for the '+job_obj.job_category+' with '+job_obj.job_comp.comp_name+' in '+job_obj.job_comp.comp_state+', '+job_obj.job_comp.comp_country+'.'+'\n \n'+'\t'+'We would like to invite you to come to our office to interview for the position.'+'\n \n'+'\t Please call me at '+ job_obj.job_comp.comp_phoneno +' or email me at '+job_obj.job_comp.comp_email+' if you have any questions or need to reschedule.'+'\n \n' +'Best Wishes ,'+'\n'+job_obj.job_comp.comp_name +' .'
     from_email = settings.EMAIL_HOST_USER
-    to_list = [settings.EMAIL_HOST_USER,]
+    to_list = [settings.EMAIL_HOST_USER,user_obj.email,'hitesh.shetty2011@gmail.com']
     send_mail(subject,message,from_email,to_list,fail_silently=True)
+    return redirect('job:comp_dash')
+
+def subscribe(request):
+    if request.method == 'GET':
+        email = request.GET.get('EMAIL','')
+        email_set.add(email)
+    return redirect('job:index')

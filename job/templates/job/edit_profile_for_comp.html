@@ -105,7 +105,7 @@
                   <h3 class="mb-0">My account</h3>
                 </div>
                 <div class="col-4 text-right">
-                    <input type="submit" name="register" class="btn btn-sm btn-primary" value="Save Changes">
+                    <input type="submit" name="register" class="btn btn-sm btn-primary" value="Save Changes" onclick="return Validate()">
                   
                 </div>
               </div>
@@ -183,17 +183,22 @@
                 </div>
                 <hr class="my-4" />
                 <!-- Description -->
-                <!-- <h6 class="heading-small text-muted mb-4">Change Password</h6>
+                <h6 class="heading-small text-muted mb-4">Change Password</h6>
                 <div class="pl-lg-4">
                   <div class="form-group">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="form-control-label" for="input-address">Enter New Password</label>
-                            <input id="input-address" class="form-control form-control-alternative" placeholder="New Password" value="" type="password">
+                            <input class="form-control form-control-alternative" placeholder="New Password" name="password" id="password" value="" type="password" onkeyup='check();' required>
                         </div>
-                  </div>
-                </div> -->
-              
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-address">Confirm Password</label>
+                            <input class="form-control form-control-alternative" placeholder="Confirm Password" name="confirm_password" id="confirm_password"  value="" type="password" onkeyup='check();'  required>
+                            <span id='message'></span>
+                        </div>
+                      </div>
+                  </div> 
+                </div>
             </div>
           </div>
         </div>
@@ -209,6 +214,25 @@
   <!-- Argon JS -->
   <!--<script src="../assets/js/argon.min.js?v=1.0.0"></script>-->
   <script>
+    function Validate() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirm_password").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+    var check = function() {
+      if (document.getElementById('password').value ==
+        document.getElementById('confirm_password').value) {
+          document.getElementById('message').style.color = 'green';
+          document.getElementById('message').innerHTML = 'matching';
+      } else {
+          document.getElementById('message').style.color = 'red';
+          document.getElementById('message').innerHTML = 'not matching';
+      }
+    }
     $(document).ready(function() {
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-46172202-1']);

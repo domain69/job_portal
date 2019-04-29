@@ -1239,7 +1239,7 @@ h3,.h3 {
     -o-filter: grayscale(100%);
     -ms-filter: grayscale(100%);
     filter: grayscale(100%);
-    opacity: .2;
+    opacity: .5;
     -webkit-transition: all .3s ease 0s;
     -moz-transition: all .3s ease 0s;
     -o-transition: all .3s ease 0s;

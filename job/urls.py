@@ -23,6 +23,8 @@ urlpatterns = [
     path('apply/<int:id>',views.apply_for_job,name = 'apply_for_job'),
     path('comp_dash/',views.comp_dash, name='comp_dash'),
     path('comp_dash/candidates/<int:id>/',views.candidates, name='candidates'),
-    path('comp_dash/candidates_profile/<int:id>/',views.candidate_profile, name='candidate_profile'),
+    path('comp_dash/candidates_profile/<int:job_id>/<int:id>/',views.candidate_profile, name='candidate_profile'),
+    path('selected_conformation/<int:job_id>/<int:id>/',views.selected_send_mail,name='selected_send_mail'),
+    path('subscribe', views.subscribe, name='subscribe'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

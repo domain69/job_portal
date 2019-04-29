@@ -65,7 +65,7 @@
                                       <p>CANDIDATES:
                                           <br>
                                           {% for candidate in candidates %}
-                                          <a class="button button-blog" href="{% url 'job:candidate_profile' candidate.id %}">{{candidate.full_name}}</a>
+                                          <a class="button button-blog" href="{% url 'job:candidate_profile' job_id candidate.id %}">{{candidate.full_name}}</a>
                                           <br>
                                           <br>
                                           {% endfor %}
